@@ -24,7 +24,7 @@ export const ListContainer = ({
             {
                 orderedData.map((list, index)=>{
                     return(
-                        <div className=" border-2 border-gray-200 border-dashed h-[85vh] o">
+                        <div className=" border-2 border-gray-200 border-dashed h-[85vh] o" key={list.id}>
                             <ListItem
                             key={list.id}
                             index={index}
