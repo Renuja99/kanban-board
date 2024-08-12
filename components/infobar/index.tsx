@@ -6,7 +6,7 @@ type Props = {}
 
 const Infobar = (props: Props) => {
     return (
-        <section className="py-3 px-6 bg-white shadow">
+        <section className="py-3 px-6 bg-white shadow w-full">
             <nav className="relative">
                 <div className="flex items-center">
                     <div className="hidden lg:flex items-center mr-auto">
