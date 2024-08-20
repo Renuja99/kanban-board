@@ -22,12 +22,15 @@ const BoardPage = async({}: BoardPageProps)=>{
         }
     })
 
+    // const cards = useTaskStore(state => state.card)
+
     console.log('revalidate next js')
 
     return(
         <div className="ml-5 p-4 h-full overflow-x-auto ">
             <ListContainer
                 data={lists}
+                
             />
         </div>
     )

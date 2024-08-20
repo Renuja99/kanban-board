@@ -5,12 +5,24 @@ import { ListForm } from "../list-form";
 import { useEffect, useState } from "react";
 import { ListItem } from "../list-item";
 
-interface ListContainerProps {
-    data: ListWithCards[];
+export type Card =  {
+    id: string
+    title : string
 }
 
+interface ListContainerProps {
+    data: ListWithCards[];
+
+}
+
+
+
+// interface TaskProps {
+    
+// }
+
 export const ListContainer = ({
-    data
+    data,
 }: ListContainerProps) =>{
 
     const [orderedData, setOrderedData] = useState(data);
@@ -29,7 +41,7 @@ export const ListContainer = ({
                             key={list.id}
                             index={index}
                             data={list}
-                        />
+                            />
                         </div>
                         
                     )

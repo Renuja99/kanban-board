@@ -1,6 +1,10 @@
 "use client"
 
-import { Card } from "@prisma/client"
+// import { Card } from "@prisma/client"
+
+export type Card = {
+  title: string
+}
 
 interface CardItemProps{
     data: Card;

@@ -9,6 +9,7 @@ import { Button } from "../ui/button";
 import { Add } from "iconsax-react";
 import { FormTextarea } from "../form/form-textarea";
 import FormSubmit from "@/components/form/form-submit";
+import { useTaskStore } from "@/lib/store";
 import { toast } from "sonner";
 
 interface CardFormProps {
@@ -27,6 +28,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
 
     const params = useParams()
     const formRef = useRef<ElementRef<"form">>(null)
+    const addTask = useTaskStore(state => state.addTask)
 
     const { execute, fieldErrors } = useAction(createCard,{
         onSuccess: (data) => {
@@ -61,7 +63,12 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
         const title = formData.get("title") as string;
         const listId = formData.get("listId") as string;
 
-        execute({title, listId})
+        // execute({title, listId})
+        addTask(title, listId)
+    }
+
+    const handleChange = ()=>{
+        
     }
 
     if (isEditing) {
@@ -83,6 +90,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
                     id="listId"
                     name="listId"
                     value={listId}
+                    onChange={handleChange}
                 />
                 {/* <div className="flex items-center gap-x-1">
                     <FormSubmit>
