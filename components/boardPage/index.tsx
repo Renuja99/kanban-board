@@ -27,7 +27,7 @@ const BoardPage = async({}: BoardPageProps)=>{
     console.log('revalidate next js')
 
     return(
-        <div className="ml-5 p-4 h-full overflow-x-auto ">
+        <div className="ml-5 mr-5 p-4 h-full overflow-x-auto ">
             <ListContainer
                 data={lists}
                 

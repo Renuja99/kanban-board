@@ -1,18 +1,14 @@
 "use client"
-
 import { ListWithCards } from "@/types"
 import { Status, useTaskStore } from '@/lib/store'
 import { ListHeader } from "../list-header";
-import { ElementRef, useRef , useState, useEffect} from "react";
+import { ElementRef, useRef, useState, useEffect } from "react";
 import { CardForm } from "../card-form";
 import { cn } from "@/lib/utils";
-import { CardItem } from "../card-item";
-import { CloudCog } from "lucide-react";
+import { UpdateSlider } from "../update-slider";
 
-export type Card =  {
-    id: string
-    title : string
-}
+
+
 
 
 // interface TaskItemProps{
@@ -21,13 +17,13 @@ export type Card =  {
 
 interface ListItemProps {
     data: ListWithCards;
-    index:number;
+    index: number;
 }
 
 export const ListItem = ({
     data,
     index,
-}: ListItemProps) =>{
+}: ListItemProps) => {
 
     const textareaRef = useRef<ElementRef<"textarea">>(null);
 
@@ -41,9 +37,9 @@ export const ListItem = ({
         setIsEditing(false);
     }
 
-    const enableEditing= () =>{
+    const enableEditing = () => {
         setIsEditing(true);
-        setTimeout(()=>{
+        setTimeout(() => {
             textareaRef.current?.focus()
         })
     }
@@ -51,46 +47,45 @@ export const ListItem = ({
 
     useEffect(() => {
         useTaskStore.persist.rehydrate()
-    console.log('rendered')
 
+    }, [])
 
-      }, [])
-    
-    return(
-        <li className="shrink-0 h-full w-[370px] select-none p-5">
+    return (
+        <li className="shrink-0 h-full w-[25vw] select-none p-5">
             <div className="w-full rounded-md bg-[#ffffff] shadow-md pb-2">
-                <ListHeader data={data}/>
-                
+                <ListHeader data={data} />
+
             </div>
             <ol className={cn(
                 "w-full pb-2 ",
-                data.cards.length > 0 ? "mt-5" : "mt-0"
+                data.cards.length > 0 ? "mt-5 flex flex-col" : "mt-0"
             )}>
                 {
-                    data.cards.map((card, index)=>{
-                        return(
-                                <CardItem
-                            index={index}
-                            key={card.id}
-                            data ={card}
-                        />
+                    data.cards.map((card, index) => {
+                        return (
+
+                            <UpdateSlider
+                                data={card}
+                                key={index}
+                                index={index}
+                            />
                         )
-                        
+
                     })
                 }
             </ol>
 
             <div className="w-full pb-2 mt-5">
-                 < CardForm
-                    listId={data.id} 
+                < CardForm
+                    listId={data.id}
                     ref={textareaRef}
                     isEditing={isEditing}
-                    enableEditing = {enableEditing}
-                    disableEditing = {disableEditing}
+                    enableEditing={enableEditing}
+                    disableEditing={disableEditing}
 
                 />
             </div>
-            
+
         </li>
     )
 }

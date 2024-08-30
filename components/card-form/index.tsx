@@ -68,7 +68,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
     }
 
     const handleChange = ()=>{
-        
+
     }
 
     if (isEditing) {

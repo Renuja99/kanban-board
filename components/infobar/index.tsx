@@ -28,7 +28,7 @@ const Infobar = (props: Props) => {
                         </button>
                     </div>
                     
-                    <Card className="rounded-full flex gap-3 py-3 px-4 text-ghost">
+                    <Card className="rounded-full flex gap-3 py-3 px-4 text-ghost mr-5">
                         <Avatar>
                             <AvatarImage
                                 src="https://code94labs.com/wp-content/uploads/2022/09/1604514293650_LOGO-F-1024x1024.png"

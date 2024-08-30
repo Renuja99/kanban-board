@@ -13,7 +13,8 @@ interface CardItemProps{
 
 export const CardItem =({data, index}: CardItemProps)=>{
   return(
-    <div className="w-full rounded-md bg-[#ffffff] shadow-md p-2 mt-5">
+    
+    <div className="w-full rounded-md bg-[#ffffff] shadow-md mt-5 mb-5 h-fit p-4 overflow-hidden">
         {data.title}
     </div>
   )
